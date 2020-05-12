@@ -1,43 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="Web site created using create-react-app" />
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
+  <title>Employee Directory</title>
+
+  <!-- UIkit CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.4.6/dist/css/uikit.min.css" />
+
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- UIkit JS -->
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.4.6/dist/js/uikit.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.4.6/dist/js/uikit-icons.min.js"></script>
+</head>
+
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root" class="container uk-flex uk-flex-column uk-flex-middle">
+    <nav class="uk-navbar-container uk-margin uk-width-expand" uk-navbar>
+      <div class="uk-navbar-left">
+        <a class="uk-navbar-item uk-logo" href="#">Employee Directory</a>
+      </div>
+      <div class="uk-navbar-right">
+        <div class="uk-flex uk-margin-right">
+          <div class="uk-flex uk-flex-middle">
+            <div class="uk-margin-small-right">Sort: </div>
+            <select class="uk-select uk-margin-right" id="form-horizontal-select">
+              <option>Option 01</option>
+              <option>Option 02</option>
+            </select>
+          </div>
+          <div class="uk-flex uk-flex-middle">
+            <div class="uk-margin-small-right">Filter: </div>
+            <select class="uk-select" id="form-horizontal-select">
+              <option>Option 01</option>
+              <option>Option 02</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <table class="uk-table uk-table-striped uk-table-hover uk-table-responsive employee-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Picture</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Table Data</td>
+          <td>Table Data</td>
+          <td>Table Data</td>
+          <td>Table Data</td>
+          <td>Table Data</td>
+        </tr>
+        <tr>
+          <td>Table Data 2</td>
+          <td>Table Data 2</td>
+          <td>Table Data 2</td>
+          <td>Table Data 2</td>
+          <td>Table Data 2</td>
+        </tr>
+        <tr>
+          <td>Table Data 3</td>
+          <td>Table Data 3</td>
+          <td>Table Data 3</td>
+          <td>Table Data 3</td>
+          <td>Table Data 3</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</body>
+
 </html>
