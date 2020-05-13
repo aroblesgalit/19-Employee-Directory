@@ -7,7 +7,7 @@ function Sort(props) {
             <select 
                 className="uk-select uk-margin-right" 
                 id="sort"
-                onChange={props.handleInputChange}
+                onChange={props.handleSortChange}
                 name="sortOption"
                 value={props.sortOption}
             >

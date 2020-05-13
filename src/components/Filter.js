@@ -1,10 +1,17 @@
 import React from "react";
 
-function Sort() {
+function Filter(props) {
     return (
         <div className="uk-flex uk-flex-middle">
             <div className="uk-margin-small-right">Filter: </div>
-            <select className="uk-select" id="filter">
+            <select 
+                className="uk-select" 
+                id="filter"
+                onChange={props.handleFilterChange}
+                name="filterOption"
+                value={props.filterOption}
+            >
+                <option value="all">All</option>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
             </select>
@@ -12,4 +19,4 @@ function Sort() {
     );
 }
 
-export default Sort;
+export default Filter;

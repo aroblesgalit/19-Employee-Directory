@@ -13,7 +13,8 @@ import API from "../utils/API";
 class EmployeeDirContainer extends React.Component {
     state = {
         results: [],
-        sortOption: "name"
+        sortOption: "name",
+        filterOption: "all"
     };
 
     componentDidMount() {
@@ -31,7 +32,7 @@ class EmployeeDirContainer extends React.Component {
             .catch(err => console.log(err));
     };
 
-    handleInputChange = (event) => {
+    handleSortChange = (event) => {
         this.setState({ 
             sortOption: event.target.value
         });
@@ -47,6 +48,28 @@ class EmployeeDirContainer extends React.Component {
         }
     };
 
+    handleFilterChange = (event) => {
+        console.log(event.target.value);
+        this.setState({
+            filterOption: event.target.value
+        });
+        if (this.state.filterOption === "all") {
+            this.setState({
+                results: this.state.results
+            })
+        } else if (this.state.filterOption === "male") {
+            const maleFilter = this.state.results.filter(employee => employee.gender === "male");
+            this.setState({
+                results: maleFilter
+            })
+        } else if (this.state.filterOption === "female") {
+            const femaleFilter = this.state.results.filter(employee => employee.gender === "female");
+            this.setState({
+                results: femaleFilter
+            })
+        }
+    }
+
     render() {
         return (
             <Container>
@@ -55,9 +78,12 @@ class EmployeeDirContainer extends React.Component {
                     <NavbarRight>
                         <Sort
                             sortOption={this.state.sortOption}
-                            handleInputChange={this.handleInputChange}
+                            handleSortChange={this.handleSortChange}
                         />
-                        <Filter />
+                        <Filter 
+                            filterOption={this.state.filterOption}
+                            handleFilterChange={this.handleFilterChange}
+                        />
                     </NavbarRight>
                 </Navbar>
                 <Table>
