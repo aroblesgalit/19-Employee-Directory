@@ -44,7 +44,7 @@ class EmployeeDirContainer extends React.Component {
         }
         if (this.state.sortOption === "id") {
             this.setState({
-                results: this.state.results.sort((a, b) => a.id < b.id ? 1 : -1)
+                results: this.state.results.sort((a, b) => a.id > b.id ? 1 : -1)
             })
         }
     };
@@ -52,22 +52,26 @@ class EmployeeDirContainer extends React.Component {
     handleFilterChange = (event) => {
         console.log(event.target.value);
         this.setState({
-            filterOption: event.target.value
+            filterOption: event.target.value,
+            results: employees
         });
         if (this.state.filterOption === "all") {
             this.setState({
-                results: this.state.results
+                results: employees
             })
+            return;
         } else if (this.state.filterOption === "male") {
-            const maleFilter = this.state.results.filter(employee => employee.gender === "male");
+            const maleFilter = employees.filter(employee => employee.gender === "male");
             this.setState({
                 results: maleFilter
             })
+            return;
         } else if (this.state.filterOption === "female") {
-            const femaleFilter = this.state.results.filter(employee => employee.gender === "female");
+            const femaleFilter = employees.filter(employee => employee.gender === "female");
             this.setState({
                 results: femaleFilter
             })
+            return;
         }
     }
 

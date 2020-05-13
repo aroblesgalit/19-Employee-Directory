@@ -5,7 +5,7 @@
         "image": "https://randomuser.me/api/portraits/thumb/women/3.jpg",
         "email": "rosie.hughes@gmail.com",
         "phone": "(512)123-4567",
-        "gener": "female",
+        "gender": "female",
         "location": "Austin, TX"
     },
     {
@@ -14,7 +14,7 @@
         "image": "https://randomuser.me/api/portraits/thumb/men/7.jpg",
         "email": "jayden.taylor@gmail.com",
         "phone": "(512)231-4309",
-        "gener": "male",
+        "gender": "male",
         "location": "Austin, TX"
     },
     {
@@ -23,7 +23,7 @@
         "image": "https://randomuser.me/api/portraits/thumb/men/95.jpg",
         "email": "magnus.gottwald@gmail.com",
         "phone": "(512)876-2423",
-        "gener": "male",
+        "gender": "male",
         "location": "Austin, TX"
     },
     {
@@ -32,7 +32,7 @@
         "image": "https://randomuser.me/api/portraits/thumb/women/40.jpg",
         "email": "sue.henry@gmail.com",
         "phone": "(512)933-2840",
-        "gener": "female",
+        "gender": "female",
         "location": "Austin, TX"
     },
     {
@@ -41,7 +41,7 @@
         "image": "https://randomuser.me/api/portraits/thumb/women/12.jpg",
         "email": "allie.pierce@gmail.com",
         "phone": "(512)823-3503",
-        "gener": "female",
+        "gender": "female",
         "location": "Austin, TX"
     },
     {
@@ -50,7 +50,7 @@
         "image": "https://randomuser.me/api/portraits/thumb/men/16.jpg",
         "email": "villads.pedersen@gmail.com",
         "phone": "(512)729-1938",
-        "gener": "male",
+        "gender": "male",
         "location": "Austin, TX"
     },
     {
@@ -59,7 +59,7 @@
         "image": "https://randomuser.me/api/portraits/thumb/men/84.jpg",
         "email": "bruce.marshall@gmail.com",
         "phone": "(512)998-2764",
-        "gener": "male",
+        "gender": "male",
         "location": "Austin, TX"
     },
     {
@@ -68,7 +68,7 @@
         "image": "https://randomuser.me/api/portraits/thumb/women/64.jpg",
         "email": "ellie.harris@gmail.com",
         "phone": "(512)249-2948",
-        "gener": "female",
+        "gender": "female",
         "location": "Austin, TX"
     },
     {
@@ -77,7 +77,7 @@
         "image": "https://randomuser.me/api/portraits/thumb/women/95.jpg",
         "email": "ava.novak@gmail.com",
         "phone": "(512)842-4982",
-        "gener": "female",
+        "gender": "female",
         "location": "Austin, TX"
     },
     {
@@ -86,7 +86,7 @@
         "image": "https://randomuser.me/api/portraits/thumb/men/15.jpg",
         "email": "zelio.oliveira@gmail.com",
         "phone": "(512)920-9021",
-        "gener": "male",
+        "gender": "male",
         "location": "Austin, TX"
     }
 ]
