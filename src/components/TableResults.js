@@ -5,7 +5,7 @@ function TableResults(props) {
     return (
         <tbody>
             {props.results.map(employee => (
-                <tr>
+                <tr key={employee.id}>
                     <td><img src={employee.image} alt={employee.name} className="uk-border-circle" /></td>
                     <td>{employee.id}</td>
                     <td>{employee.name}</td>

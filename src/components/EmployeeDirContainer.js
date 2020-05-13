@@ -18,18 +18,20 @@ class EmployeeDirContainer extends React.Component {
         filterOption: "all"
     };
 
-    componentDidMount() {
-        // for (let i = 0; i < 10; i++) {
-        //     this.searchEmployee();
-        // }
-        this.setState({
-            results: employees,
-            sortOption: "id",
-            filterOption: "all"
-        })
-    };
+    // componentDidMount() {
+    //     // Run searchEmployee 10x to get 10 random users
+    //     // for (let i = 0; i < 10; i++) {
+    //     //     this.searchEmployee();
+    //     // }
+    //     this.setState({
+    //         results: employees,
+    //         sortOption: "id",
+    //         filterOption: "all"
+    //     })
+    // };
 
-    // searchEmployee = () => {
+    // Using the API.js to get random users
+    // getEmployees = () => {
     //     API.search()
     //         .then(res => {
     //             const newResult = this.state.results.concat(res.data.results[0]);
@@ -40,17 +42,16 @@ class EmployeeDirContainer extends React.Component {
 
     handleSortChange = (event) => {
         const sortOption = event.target.value;
-        this.setState({ 
+        this.setState({
             sortOption: sortOption
         });
-        if (sortOption === "name") {
-            this.setState({
-                results: this.state.results.sort((a, b) => a.name > b.name ? 1 : -1)
-            })
-        }
         if (sortOption === "id") {
             this.setState({
-                results: this.state.results.sort((a, b) => a.id > b.id ? 1 : -1)
+                results: this.state.results.sort((a, b) => a.id - b.id)
+            })
+        } else if (sortOption === "name") {
+            this.setState({
+                results: this.state.results.sort((a, b) => a.name > b.name ? 1 : -1)
             })
         }
     };
@@ -60,23 +61,20 @@ class EmployeeDirContainer extends React.Component {
         this.setState({
             filterOption: filterOption
         });
-        if (filterOption === "all") {
-            this.setState({
-                results: employees
-            })
-            return;
-        } else if (filterOption === "male") {
+        if (filterOption === "male") {
             const maleFilter = employees.filter(employee => employee.gender === "male");
             this.setState({
                 results: maleFilter
             })
-            return;
         } else if (filterOption === "female") {
             const femaleFilter = employees.filter(employee => employee.gender === "female");
             this.setState({
                 results: femaleFilter
             })
-            return;
+        } else if (filterOption === "all") {
+            this.setState({
+                results: employees
+            })
         }
     }
 
@@ -90,7 +88,7 @@ class EmployeeDirContainer extends React.Component {
                             sortOption={this.state.sortOption}
                             handleSortChange={this.handleSortChange}
                         />
-                        <Filter 
+                        <Filter
                             filterOption={this.state.filterOption}
                             handleFilterChange={this.handleFilterChange}
                         />
