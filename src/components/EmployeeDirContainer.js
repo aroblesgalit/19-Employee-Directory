@@ -39,15 +39,16 @@ class EmployeeDirContainer extends React.Component {
     // };
 
     handleSortChange = (event) => {
+        const sortOption = event.target.value;
         this.setState({ 
-            sortOption: event.target.value
+            sortOption: sortOption
         });
-        if (this.state.sortOption === "name") {
+        if (sortOption === "name") {
             this.setState({
                 results: this.state.results.sort((a, b) => a.name > b.name ? 1 : -1)
             })
         }
-        if (this.state.sortOption === "id") {
+        if (sortOption === "id") {
             this.setState({
                 results: this.state.results.sort((a, b) => a.id > b.id ? 1 : -1)
             })
