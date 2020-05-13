@@ -6,8 +6,13 @@ import NavbarRight from "./NavbarRight";
 import Sort from "./Sort";
 import Filter from "./Filter";
 import Table from "./Table";
+import TableHead from "./TableHead";
+import TableResults from "./TableResults";
 
 class EmployeeDirContainer extends React.Component {
+    state = {
+        results: []
+    }
 
     render() {
         return (
@@ -19,7 +24,10 @@ class EmployeeDirContainer extends React.Component {
                         <Filter />
                     </NavbarRight>
                 </Navbar>
-                <Table />
+                <Table>
+                    <TableHead />
+                    <TableResults results={this.state.results} />
+                </Table>
             </Container>
         )
     }
