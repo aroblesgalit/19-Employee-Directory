@@ -18,11 +18,16 @@ class EmployeeDirContainer extends React.Component {
         filterOption: "all"
     };
 
-    // componentDidMount() {
-    //     for (let i = 0; i < 10; i++) {
-    //         this.searchEmployee();
-    //     }
-    // };
+    componentDidMount() {
+        // for (let i = 0; i < 10; i++) {
+        //     this.searchEmployee();
+        // }
+        this.setState({
+            results: employees,
+            sortOption: "id",
+            filterOption: "all"
+        })
+    };
 
     // searchEmployee = () => {
     //     API.search()
@@ -50,23 +55,22 @@ class EmployeeDirContainer extends React.Component {
     };
 
     handleFilterChange = (event) => {
-        console.log(event.target.value);
+        const filterOption = event.target.value;
         this.setState({
-            filterOption: event.target.value,
-            results: employees
+            filterOption: filterOption
         });
-        if (this.state.filterOption === "all") {
+        if (filterOption === "all") {
             this.setState({
                 results: employees
             })
             return;
-        } else if (this.state.filterOption === "male") {
+        } else if (filterOption === "male") {
             const maleFilter = employees.filter(employee => employee.gender === "male");
             this.setState({
                 results: maleFilter
             })
             return;
-        } else if (this.state.filterOption === "female") {
+        } else if (filterOption === "female") {
             const femaleFilter = employees.filter(employee => employee.gender === "female");
             this.setState({
                 results: femaleFilter
