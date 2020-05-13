@@ -12,11 +12,12 @@ import API from "../utils/API";
 
 class EmployeeDirContainer extends React.Component {
     state = {
-        results: []
+        results: [],
+        sortOption: "name"
     };
 
     componentDidMount() {
-        for(let i = 0; i < 10; i++) {
+        for (let i = 0; i < 10; i++) {
             this.searchEmployee();
         }
     };
@@ -30,13 +31,32 @@ class EmployeeDirContainer extends React.Component {
             .catch(err => console.log(err));
     };
 
+    handleInputChange = (event) => {
+        this.setState({ 
+            sortOption: event.target.value
+        });
+        if (this.state.sortOption === "name") {
+            this.setState({
+                results: this.state.results.sort((a, b) => b.name.first - a.name.first ? 1 : -1)
+            })
+        }
+        if (this.state.sortOption === "id") {
+            this.setState({
+                results: this.state.results.sort((a, b) => a.id.value > b.id.value ? 1 : -1)
+            })
+        }
+    };
+
     render() {
         return (
             <Container>
                 <Navbar>
                     <Logo />
                     <NavbarRight>
-                        <Sort />
+                        <Sort
+                            sortOption={this.state.sortOption}
+                            handleInputChange={this.handleInputChange}
+                        />
                         <Filter />
                     </NavbarRight>
                 </Navbar>
