@@ -8,29 +8,30 @@ import Filter from "./Filter";
 import Table from "./Table";
 import TableHead from "./TableHead";
 import TableResults from "./TableResults";
-import API from "../utils/API";
+// import API from "../utils/API";
+import employees from "../employees.json";
 
 class EmployeeDirContainer extends React.Component {
     state = {
-        results: [],
-        sortOption: "name",
+        results: employees,
+        sortOption: "id",
         filterOption: "all"
     };
 
-    componentDidMount() {
-        for (let i = 0; i < 10; i++) {
-            this.searchEmployee();
-        }
-    };
+    // componentDidMount() {
+    //     for (let i = 0; i < 10; i++) {
+    //         this.searchEmployee();
+    //     }
+    // };
 
-    searchEmployee = () => {
-        API.search()
-            .then(res => {
-                const newResult = this.state.results.concat(res.data.results[0]);
-                this.setState({ results: newResult })
-            })
-            .catch(err => console.log(err));
-    };
+    // searchEmployee = () => {
+    //     API.search()
+    //         .then(res => {
+    //             const newResult = this.state.results.concat(res.data.results[0]);
+    //             this.setState({ results: newResult })
+    //         })
+    //         .catch(err => console.log(err));
+    // };
 
     handleSortChange = (event) => {
         this.setState({ 
@@ -38,12 +39,12 @@ class EmployeeDirContainer extends React.Component {
         });
         if (this.state.sortOption === "name") {
             this.setState({
-                results: this.state.results.sort((a, b) => b.name.first - a.name.first ? 1 : -1)
+                results: this.state.results.sort((a, b) => a.name > b.name ? 1 : -1)
             })
         }
         if (this.state.sortOption === "id") {
             this.setState({
-                results: this.state.results.sort((a, b) => a.id.value > b.id.value ? 1 : -1)
+                results: this.state.results.sort((a, b) => a.id < b.id ? 1 : -1)
             })
         }
     };

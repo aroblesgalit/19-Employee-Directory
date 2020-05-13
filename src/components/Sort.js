@@ -11,8 +11,8 @@ function Sort(props) {
                 name="sortOption"
                 value={props.sortOption}
             >
-                <option value="name">Name</option>
                 <option value="id">ID</option>
+                <option value="name">Name</option>
             </select>
         </div>
     );
