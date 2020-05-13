@@ -8,11 +8,27 @@ import Filter from "./Filter";
 import Table from "./Table";
 import TableHead from "./TableHead";
 import TableResults from "./TableResults";
+import API from "../utils/API";
 
 class EmployeeDirContainer extends React.Component {
     state = {
         results: []
-    }
+    };
+
+    componentDidMount() {
+        for(let i = 0; i < 10; i++) {
+            this.searchEmployee();
+        }
+    };
+
+    searchEmployee = () => {
+        API.search()
+            .then(res => {
+                const newResult = this.state.results.concat(res.data.results[0]);
+                this.setState({ results: newResult })
+            })
+            .catch(err => console.log(err));
+    };
 
     render() {
         return (
@@ -29,7 +45,7 @@ class EmployeeDirContainer extends React.Component {
                     <TableResults results={this.state.results} />
                 </Table>
             </Container>
-        )
+        );
     }
 }
 
