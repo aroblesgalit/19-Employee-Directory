@@ -34,14 +34,14 @@
         <div class="uk-flex uk-margin-right">
           <div class="uk-flex uk-flex-middle">
             <div class="uk-margin-small-right">Sort: </div>
-            <select class="uk-select uk-margin-right" id="form-horizontal-select">
-              <option>Option 01</option>
-              <option>Option 02</option>
+            <select class="uk-select uk-margin-right" id="sort">
+              <option>Name</option>
+              <option>ID</option>
             </select>
           </div>
           <div class="uk-flex uk-flex-middle">
             <div class="uk-margin-small-right">Filter: </div>
-            <select class="uk-select" id="form-horizontal-select">
+            <select class="uk-select" id="filter">
               <option>Option 01</option>
               <option>Option 02</option>
             </select>
@@ -49,37 +49,45 @@
         </div>
       </div>
     </nav>
-    <table class="uk-table uk-table-striped uk-table-hover uk-table-responsive employee-table">
+    <table class="uk-table uk-table-striped uk-table-hover uk-table-middle uk-table-responsive employee-table">
       <thead>
         <tr>
-          <th>ID</th>
-          <th>Picture</th>
-          <th>Name</th>
+          <th class="uk-table-shrink">Picture</th>
+          <th class="uk-table-shrink">ID</th>
+          <th class="uk-table-expand">Name</th>
           <th>Email</th>
           <th>Phone</th>
+          <th>Gender</th>
+          <th>Location</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>Table Data</td>
-          <td>Table Data</td>
-          <td>Table Data</td>
-          <td>Table Data</td>
-          <td>Table Data</td>
+          <td><img src="https://randomuser.me/api/portraits/thumb/men/75.jpg" alt="" class="uk-border-circle"></td>
+          <td>0390511T</td>
+          <td>Brad Gibson</td>
+          <td>brad.gibson@example.com</td>
+          <td>011-962-7516</td>
+          <td>Male</td>
+          <td>kilcoole, waterford</td>
         </tr>
         <tr>
-          <td>Table Data 2</td>
-          <td>Table Data 2</td>
-          <td>Table Data 2</td>
-          <td>Table Data 2</td>
-          <td>Table Data 2</td>
+          <td><img src="https://randomuser.me/api/portraits/thumb/men/75.jpg" alt="" class="uk-border-circle"></td>
+          <td>0390511T13552</td>
+          <td>Brad Gibson</td>
+          <td>brad.gibson@example.com</td>
+          <td>011-962-7516</td>
+          <td>Male</td>
+          <td>kilcoole, waterford</td>
         </tr>
         <tr>
-          <td>Table Data 3</td>
-          <td>Table Data 3</td>
-          <td>Table Data 3</td>
-          <td>Table Data 3</td>
-          <td>Table Data 3</td>
+          <td><img src="https://randomuser.me/api/portraits/thumb/men/75.jpg" alt="" class="uk-border-circle"></td>
+          <td>0390511T</td>
+          <td>Brad Gibson</td>
+          <td>brad.gibson@example.com</td>
+          <td>011-962-7516</td>
+          <td>Male</td>
+          <td>kilcoole, waterford</td>
         </tr>
       </tbody>
     </table>
