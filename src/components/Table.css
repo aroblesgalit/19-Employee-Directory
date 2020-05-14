@@ -1,3 +1,15 @@
 .employee-table {
     max-width: 1200px;
 }
+
+.sort-btn {
+    cursor: pointer;
+}
+
+.sort-btn span {
+    visibility: hidden;
+}
+
+.sort-btn:hover span {
+    visibility: visible;
+}
