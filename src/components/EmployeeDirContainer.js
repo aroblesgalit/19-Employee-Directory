@@ -13,15 +13,21 @@ import TableResults from "./TableResults";
 import employeesList from "../employees.json";
 
 function EmployeeDirContainer() {
-    const [employees, setEmployees] = useState(employeesList);
-    const [sortOption, setSortOption] = useState("id");
-    const [filterOption, setFilterOption] = useState("all");
-    // const [sortedById, setSortedById] = useState([]);
-    // const [sortedByName, setSortedByName] = useState([]);
-    const [allEmployees] = useState(employeesList);
+    const [allEmployees] = useState([...employeesList]);
     const [maleEmployees] = useState(employeesList.filter(employee => employee.gender === "male"));
     const [femaleEmployees] = useState(employeesList.filter(employee => employee.gender === "female"));
-
+    
+    const [employees, setEmployees] = useState(allEmployees);
+    const [sortOption, setSortOption] = useState("id");
+    const [filterOption, setFilterOption] = useState("all");
+    // const [sortedById] = useState([...employeesList].sort((a, b) => a.id > b.id ? 1 : -1));
+    // const [sortedByName, setSortedByName] = useState([]);
+    
+    // useEffect(() => {
+    //     console.log("Initial useEffect running: ")
+    //     setSortOption("name");
+    //     // setEmployees(allEmployees);
+    // }, [])
     // useEffect(() => {
     //     // Using json file for employees
     //     setFilterOption(filterOption);
@@ -43,32 +49,48 @@ function EmployeeDirContainer() {
     //     //     .catch(err => console.log(err));
     // }, [allEmployees, employees, femaleEmployees, filterOption, maleEmployees, sortOption]);
 
-
-    useEffect(() => {
-        if (sortOption === "id") {
-            // setSortOption("id");
-            const sorted = employees.sort((a, b) => a.id > b.id ? 1 : -1);
+    function sort(option) {
+        if (option === "id") {          
+            const sorted = [...employees];
+            sorted.sort((a, b) => a.id > b.id ? 1 : -1);
             // setSortedById(sorted);
             setEmployees(sorted);
-        } else if (sortOption === "name") {
-            // setSortOption("name");
-            const sorted = employees.sort((a, b) => a.name > b.name ? 1 : -1);
+            setSortOption("id");
+        } else if (option === "name") {
+            const sorted = [...employees];
+            sorted.sort((a, b) => a.name > b.name ? 1 : -1);
             // setSortedByName(sorted);
             setEmployees(sorted);
+            setSortOption("name");
         }
-    }, [employees, sortOption]);
+    }
 
-    useEffect(() => {
-        if (filterOption === "male") {
-            // const maleFilter = employees.filter(employee => employee.gender === "male");
-            setEmployees(maleEmployees);
-        } else if (filterOption === "female") {
-            // const femaleFilter = employees.filter(employee => employee.gender === "female");
-            setEmployees(femaleEmployees);
-        } else {
-            setEmployees(allEmployees);
-        }
-    }, [maleEmployees, femaleEmployees, employees, filterOption, allEmployees]);
+    // useEffect(() => {
+    //     console.log("This is useEffect for sort option: " + sortOption);
+    //     if (sortOption === "id") {
+    //         // setSortOption("id");
+    //         const sorted = employees.sort((a, b) => a.id > b.id ? 1 : -1);
+    //         // setSortedById(sorted);
+    //         setEmployees(sorted);
+    //     } else if (sortOption === "name") {
+    //         // setSortOption("name");
+    //         const sorted = employees.sort((a, b) => a.name > b.name ? 1 : -1);
+    //         // setSortedByName(sorted);
+    //         setEmployees(sorted);
+    //     }
+    // }, [employees, sortOption]);
+
+    // useEffect(() => {
+    //     if (filterOption === "male") {
+    //         // const maleFilter = employees.filter(employee => employee.gender === "male");
+    //         setEmployees(maleEmployees);
+    //     } else if (filterOption === "female") {
+    //         // const femaleFilter = employees.filter(employee => employee.gender === "female");
+    //         setEmployees(femaleEmployees);
+    //     } else {
+    //         setEmployees(allEmployees);
+    //     }
+    // }, [maleEmployees, femaleEmployees, employees, filterOption, allEmployees]);
 
     return (
         <Container>
@@ -77,7 +99,7 @@ function EmployeeDirContainer() {
                 <NavbarRight>
                     <Sort>
                         <SortSelect
-                            handleSortChange={(e) => setSortOption(e.target.value)}
+                            handleSortChange={(e) => sort(e.target.value)}
                             sortOption={sortOption}
                         />
                     </Sort>
@@ -89,7 +111,7 @@ function EmployeeDirContainer() {
                 </NavbarRight>
             </Navbar>
             <Table>
-                <TableHead sortById={() => setSortOption("id")} sortByName={() => setSortOption("name")}/>
+                <TableHead sortById={() => sort("id")} sortByName={() => sort("name")}/>
                 <TableResults results={employees} />
             </Table>
         </Container>
